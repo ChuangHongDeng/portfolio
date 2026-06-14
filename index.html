@@ -414,6 +414,49 @@
             color: var(--highlight);
         }
 
+        /* Project Images Gallery */
+        .project-images {
+            margin-top: 1.5rem;
+        }
+
+        .project-images h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-image-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-image-item:hover {
+            border-color: rgba(67,97,238,0.3);
+            box-shadow: var(--card-shadow);
+        }
+
+        .project-image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-image-caption {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            background: var(--bg-alt);
+        }
+
         .expand-btn {
             display: inline-flex;
             align-items: center;
@@ -741,6 +784,23 @@
                         <li>LLM 负责语义理解，Python 负责精确数学计算，各司其职</li>
                         <li>复合风险识别：多维度交叉判断，不遗漏叠加风险场景</li>
                     </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_01.jpg" alt="库存分析报告截图" loading="lazy">
+                                <div class="project-image-caption">库存分析报告 — 自动生成的综合库存状况报告</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_02.jpg" alt="后端工作流架构" loading="lazy">
+                                <div class="project-image-caption">后端工作流 — Agent 多步推理与计算链路</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_03.jpg" alt="使用场景截图" loading="lazy">
+                                <div class="project-image-caption">实际使用场景 — 对话式交互获取库存分析</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -782,6 +842,19 @@
                         <li>提示词工程：角色设定 + 引用溯源 + 幻觉抑制</li>
                         <li>Bad Case 归因分析驱动持续优化</li>
                     </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_04.jpg" alt="智能体调试页面" loading="lazy">
+                                <div class="project-image-caption">智能体调试页面 — Coze 平台工作流调试视图</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_05.jpg" alt="知识库切片策略" loading="lazy">
+                                <div class="project-image-caption">知识库切片 — 层级路径+语义完整性切片策略</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -817,6 +890,23 @@
                         <li>场景二：跨系统多页面操作 + 条件分支决策</li>
                         <li>规则驱动：将业务判断逻辑编码为可复用的 RPA 流程</li>
                     </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_06.jpg" alt="RPA方案架构1" loading="lazy">
+                                <div class="project-image-caption">RPA 应用架构 — 影刀平台自动化流程设计</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_07.jpg" alt="RPA方案架构2" loading="lazy">
+                                <div class="project-image-caption">RPA 流程设计 — 条件判断与循环逻辑</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_08.jpg" alt="RPA方案架构3" loading="lazy">
+                                <div class="project-image-caption">RPA 自动化执行 — 无人值守批量操作</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -865,6 +955,24 @@
                 <div class="project-result">
                     <span class="project-result-icon">📦</span>
                     业务全链路数字化，告别 Excel 手工台账
+                </div>
+                <button class="expand-btn">
+                    查看详情 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <div class="project-images">
+                        <h4>系统截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_09.jpg" alt="厂家订单详情页" loading="lazy">
+                                <div class="project-image-caption">厂家订单详情页 — 完整订单信息与状态追踪</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_10.jpg" alt="采购用户订单详情" loading="lazy">
+                                <div class="project-image-caption">采购用户订单详情 — 买家视角的订单管理界面</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
