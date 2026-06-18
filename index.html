@@ -321,7 +321,69 @@
 
     <div class="section" style="padding-top: 0; padding-bottom: 2rem;">
         <div class="projects-grid">
-            <!-- Project 1: 库存分析日报 -->
+            <!-- Project 1: Coze 竞品评论分析 -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-ai">AI Agent</span>
+                </div>
+                <h3>跨境电商竞品评论分析 Agent</h3>
+                <p class="project-card-scene">
+                    跨境电商运营人员需持续监控竞品用户评论，手动翻看数千条评论归纳优缺点，耗时长、效率低、易遗漏关键信息。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">技术架构</span>
+                    Coze 工作流 — Bot对话 + 插件抓取 + LLM分析 + 代码计算 + 画图插件
+                </div>
+                <ul class="project-highlights">
+                    <li>输入竞品链接即可自动抓取评论 → 多语言翻译 → 情感分析 → 可视化图表 → 输出专业报告</li>
+                    <li>Python 代码节点处理统计计算（总数/星级/情感分布），LLM 节点负责洞察分析</li>
+                    <li>7层流水线架构：对话层→获取层→预处理层→统计层→(洞察+图表)→报告拼装层</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">🔍</span>
+                    一条链接输入 → 一份含数据图表+运营建议的 Markdown 分析报告
+                </div>
+                <button class="expand-btn">
+                    查看详情与截图 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <h4>方案架构</h4>
+                    <ul>
+                        <li><strong>Bot 对话层</strong>：意图识别 → 参数提取 → 触发工作流</li>
+                        <li><strong>数据获取层</strong>：插件抓取 / 假数据测试（双路径）</li>
+                        <li><strong>数据预处理层</strong>：评论提取 + 多语言翻译 → 结构化 JSON</li>
+                        <li><strong>统计分析层</strong>：代码节点计算总数、星级分布、情感分布</li>
+                        <li><strong>洞察分析层</strong>：LLM 节点生成口碑画像、优缺点归纳、改进建议</li>
+                        <li><strong>图表生成层</strong>：代码+画图插件生成饼图、柱状图，原生图片输出</li>
+                        <li><strong>报告拼装层</strong>：LLM 将洞察+图表组装为 Markdown 报告</li>
+                    </ul>
+                    <h4>技术栈</h4>
+                    <ul>
+                        <li>Coze 工作流 + LLM 节点 + Python 代码节点</li>
+                        <li>插件市场：网页抓取插件 + 画图插件</li>
+                        <li>Bot 对话框架：自然语言触发，降低运营人员使用门槛</li>
+                    </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(0, 'gallery-coze')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_11.png" alt="Coze工作流全貌" loading="lazy"></div>
+                                <div class="project-image-caption">工作流全貌 — 7层流水线架构：Bot对话→获取→预处理→统计→洞察→图表→报告</div>
+                            </div>
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(1, 'gallery-coze')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_12.jpg" alt="分析报告输出效果" loading="lazy"></div>
+                                <div class="project-image-caption">分析报告输出 — 含数据图表+运营建议的 Markdown 专业报告</div>
+                            </div>
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(2, 'gallery-coze')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_13.png" alt="Bot对话交互" loading="lazy"></div>
+                                <div class="project-image-caption">Bot 对话交互 — 输入链接即可触发分析，自然语言降低使用门槛</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: 库存分析日报 -->
             <div class="project-card fade-in" onclick="toggleExpand(this)">
                 <div class="project-card-header">
                     <span class="project-card-type type-ai">AI Agent</span>
@@ -482,50 +544,6 @@
                 </div>
             </div>
 
-            <!-- Project 4: Coze 竞品评论分析 -->
-            <div class="project-card fade-in" onclick="toggleExpand(this)">
-                <div class="project-card-header">
-                    <span class="project-card-type type-ai">AI Agent</span>
-                </div>
-                <h3>跨境电商竞品评论分析 Agent</h3>
-                <p class="project-card-scene">
-                    跨境电商运营人员需持续监控竞品用户评论，手动翻看数千条评论归纳优缺点，耗时长、效率低、易遗漏关键信息。
-                </p>
-                <div class="project-card-arch">
-                    <span class="project-card-arch-label">技术架构</span>
-                    Coze 工作流 — Bot对话 + 插件抓取 + LLM分析 + 代码计算 + 画图插件
-                </div>
-                <ul class="project-highlights">
-                    <li>输入竞品链接即可自动抓取评论 → 多语言翻译 → 情感分析 → 可视化图表 → 输出专业报告</li>
-                    <li>Python 代码节点处理统计计算（总数/星级/情感分布），LLM 节点负责洞察分析</li>
-                    <li>7层流水线架构：对话层→获取层→预处理层→统计层→(洞察+图表)→报告拼装层</li>
-                </ul>
-                <div class="project-result">
-                    <span class="project-result-icon">🔍</span>
-                    一条链接输入 → 一份含数据图表+运营建议的 Markdown 分析报告
-                </div>
-                <button class="expand-btn">
-                    查看详情 <span class="arrow">↓</span>
-                </button>
-                <div class="project-detail">
-                    <h4>方案架构</h4>
-                    <ul>
-                        <li><strong>Bot 对话层</strong>：意图识别 → 参数提取 → 触发工作流</li>
-                        <li><strong>数据获取层</strong>：插件抓取 / 假数据测试（双路径）</li>
-                        <li><strong>数据预处理层</strong>：评论提取 + 多语言翻译 → 结构化 JSON</li>
-                        <li><strong>统计分析层</strong>：代码节点计算总数、星级分布、情感分布</li>
-                        <li><strong>洞察分析层</strong>：LLM 节点生成口碑画像、优缺点归纳、改进建议</li>
-                        <li><strong>图表生成层</strong>：代码+画图插件生成饼图、柱状图，原生图片输出</li>
-                        <li><strong>报告拼装层</strong>：LLM 将洞察+图表组装为 Markdown 报告</li>
-                    </ul>
-                    <h4>技术栈</h4>
-                    <ul>
-                        <li>Coze 工作流 + LLM 节点 + Python 代码节点</li>
-                        <li>插件市场：网页抓取插件 + 画图插件</li>
-                        <li>Bot 对话框架：自然语言触发，降低运营人员使用门槛</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -740,6 +758,11 @@
     <script>
         // Gallery data: each gallery has a name and an array of {src, caption}
         const galleries = {
+            'gallery-coze': [
+                {src:'assets/images/portfolio_11.png', caption:'工作流全貌 — 7层流水线架构：Bot对话→获取→预处理→统计→洞察→图表→报告'},
+                {src:'assets/images/portfolio_12.jpg', caption:'分析报告输出 — 含数据图表+运营建议的 Markdown 专业报告'},
+                {src:'assets/images/portfolio_13.png', caption:'Bot 对话交互 — 输入链接即可触发分析，自然语言降低使用门槛'}
+            ],
             'gallery-inventory': [
                 {src:'assets/images/portfolio_01.jpg', caption:'库存分析报告 — 自动生成的综合库存状况报告'},
                 {src:'assets/images/portfolio_02.jpg', caption:'后端工作流 — Agent 多步推理与计算链路'}
