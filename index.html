@@ -26,15 +26,9 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -44,674 +38,250 @@
             font-size: 15px;
         }
 
-        /* Navigation */
+        /* ── Navigation ── */
         .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 2rem;
-            transition: var(--transition);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); padding: 0 2rem; transition: var(--transition);
         }
-
         .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
+            max-width: 1100px; margin: 0 auto; display: flex;
+            align-items: center; justify-content: space-between; height: 60px;
         }
-
-        .nav-brand {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
+        .nav-brand { font-weight: 600; font-size: 1.05rem; color: var(--primary); letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
+            text-decoration: none; color: var(--text-light); font-size: 0.875rem;
+            font-weight: 500; transition: var(--transition); position: relative;
         }
-
-        .nav-links a:hover {
-            color: var(--highlight);
-        }
-
+        .nav-links a:hover { color: var(--highlight); }
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--highlight);
-            transition: var(--transition);
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--highlight); transition: var(--transition);
         }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 140px 2rem 80px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
+        /* ── Hero ── */
+        .hero { padding: 140px 2rem 80px; max-width: 1100px; margin: 0 auto; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            background: linear-gradient(135deg, rgba(67,97,238,0.08), rgba(72,149,239,0.08));
-            border: 1px solid rgba(67,97,238,0.15);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--highlight);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.4rem 1rem; background: linear-gradient(135deg, rgba(67,97,238,0.08), rgba(72,149,239,0.08));
+            border: 1px solid rgba(67,97,238,0.15); border-radius: 100px;
+            font-size: 0.8rem; color: var(--highlight); font-weight: 500; margin-bottom: 1.5rem;
+        }
+        .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--highlight); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; color: var(--primary); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.03em; }
+        .hero-subtitle { font-size: 1.15rem; color: var(--text-light); max-width: 600px; line-height: 1.8; margin-bottom: 2rem; }
+        .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+        .hero-tag { padding: 0.45rem 1rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; font-size: 0.82rem; color: var(--text); font-weight: 500; }
+        .hero-contact { display: flex; gap: 1.5rem; align-items: center; }
+        .hero-contact a { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-light); font-size: 0.875rem; transition: var(--transition); }
+        .hero-contact a:hover { color: var(--highlight); }
+
+        /* ── Section ── */
+        .section { padding: 80px 2rem; max-width: 1100px; margin: 0 auto; }
+        .section-header { margin-bottom: 3rem; }
+        .section-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--highlight); margin-bottom: 0.5rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; color: var(--primary); letter-spacing: -0.02em; }
+
+        /* ── Divider between project sections ── */
+        .section-divider {
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .section-divider::before, .section-divider::after {
+            content: ''; flex: 1; height: 1px; background: var(--border);
+        }
+        .section-divider-label {
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--text-light); white-space: nowrap;
         }
 
-        .hero-badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--highlight);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            max-width: 600px;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-tag {
-            padding: 0.45rem 1rem;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.82rem;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .hero-contact {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .hero-contact a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 0.875rem;
-            transition: var(--transition);
-        }
-
-        .hero-contact a:hover {
-            color: var(--highlight);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 80px 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--highlight);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
+        /* ── Project Cards ── */
+        .projects-grid { display: grid; gap: 1.5rem; }
         .project-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 2rem; transition: var(--transition);
+            cursor: pointer; position: relative; overflow: hidden;
         }
-
         .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--highlight), var(--highlight-light));
-            opacity: 0;
-            transition: var(--transition);
+            opacity: 0; transition: var(--transition);
         }
-
-        .project-card:hover {
-            border-color: rgba(67,97,238,0.2);
-            box-shadow: var(--card-shadow-hover);
-            transform: translateY(-2px);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-card-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
+        .project-card:hover { border-color: rgba(67,97,238,0.2); box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
+        .project-card:hover::before { opacity: 1; }
+        .project-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
         .project-card-type {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.3rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.3rem 0.75rem; border-radius: 6px; font-size: 0.72rem;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
         }
-
-        .type-ai {
-            background: rgba(67,97,238,0.1);
-            color: var(--highlight);
-        }
-
-        .type-system {
-            background: rgba(16,185,129,0.1);
-            color: #10b981;
-        }
-
-        .type-rpa {
-            background: rgba(245,158,11,0.1);
-            color: #f59e0b;
-        }
-
-        .project-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
-        }
-
-        .project-card-scene {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-
+        .type-ai { background: rgba(67,97,238,0.1); color: var(--highlight); }
+        .type-system { background: rgba(16,185,129,0.1); color: #10b981; }
+        .type-rpa { background: rgba(245,158,11,0.1); color: #f59e0b; }
+        .type-tool { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+        .project-card h3 { font-size: 1.2rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+        .project-card-scene { font-size: 0.875rem; color: var(--text-light); margin-bottom: 1.25rem; line-height: 1.6; }
         .project-card-arch {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1rem;
-            background: var(--bg-alt);
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: var(--text);
-            margin-bottom: 1.25rem;
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
+            background: var(--bg-alt); border-radius: 8px; font-size: 0.8rem;
+            color: var(--text); margin-bottom: 1.25rem;
         }
-
-        .project-card-arch-label {
-            font-weight: 600;
-            color: var(--text-light);
-            white-space: nowrap;
-        }
-
-        .project-highlights {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .project-highlights li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            font-size: 0.84rem;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .project-highlights li::before {
-            content: '→';
-            color: var(--highlight);
-            font-weight: 600;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
+        .project-card-arch-label { font-weight: 600; color: var(--text-light); white-space: nowrap; }
+        .project-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
+        .project-highlights li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: var(--text); line-height: 1.6; }
+        .project-highlights li::before { content: '→'; color: var(--highlight); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
         .project-result {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1rem;
-            background: rgba(67,97,238,0.04);
-            border: 1px solid rgba(67,97,238,0.1);
-            border-radius: 8px;
-            font-size: 0.82rem;
-            color: var(--highlight);
-            font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
+            background: rgba(67,97,238,0.04); border: 1px solid rgba(67,97,238,0.1);
+            border-radius: 8px; font-size: 0.82rem; color: var(--highlight); font-weight: 500;
         }
+        .project-result-icon { font-size: 1rem; }
 
-        .project-result-icon {
-            font-size: 1rem;
-        }
-
-        /* Detail Modal */
-        .project-detail {
-            display: none;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .project-card.expanded .project-detail {
-            display: block;
-        }
-
-        .project-detail h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.75rem;
-        }
-
-        .project-detail ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .project-detail ul li {
-            font-size: 0.82rem;
-            color: var(--text-light);
-            padding-left: 1.2rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .project-detail ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--highlight);
-        }
-
-        /* Project Images Gallery */
-        .project-images {
-            margin-top: 1.5rem;
-        }
-
-        .project-images h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.75rem;
-        }
-
-        .project-images-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
-        .project-image-item {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .project-image-item:hover {
-            border-color: rgba(67,97,238,0.3);
-            box-shadow: var(--card-shadow);
-        }
-
-        .project-image-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .project-image-caption {
-            padding: 0.6rem 0.8rem;
-            font-size: 0.75rem;
-            color: var(--text-light);
-            background: var(--bg-alt);
-        }
+        /* ── Expand Detail ── */
+        .project-detail { display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        .project-card.expanded .project-detail { display: block; }
+        .project-detail h4 { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+        .project-detail ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
+        .project-detail ul li { font-size: 0.82rem; color: var(--text-light); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+        .project-detail ul li::before { content: '•'; position: absolute; left: 0; color: var(--highlight); }
 
         .expand-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--highlight);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            background: none;
-            padding: 0;
+            display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem;
+            font-size: 0.8rem; color: var(--highlight); font-weight: 500;
+            cursor: pointer; transition: var(--transition); border: none; background: none; padding: 0;
         }
+        .expand-btn:hover { gap: 0.6rem; }
+        .expand-btn .arrow { transition: var(--transition); }
+        .project-card.expanded .expand-btn .arrow { transform: rotate(180deg); }
 
-        .expand-btn:hover {
-            gap: 0.6rem;
-        }
-
-        .expand-btn .arrow {
-            transition: var(--transition);
-        }
-
-        .project-card.expanded .expand-btn .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Methodology Section */
-        .methodology-grid {
+        /* ── Image Gallery ── */
+        .project-images { margin-top: 1.5rem; }
+        .project-images h4 { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+        .project-images-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 540px) {
+            .project-images-grid { grid-template-columns: 1fr; }
+        }
+        .project-image-item {
+            border: 1px solid var(--border); border-radius: 8px;
+            overflow: hidden; transition: var(--transition); cursor: pointer;
+        }
+        .project-image-item:hover { border-color: rgba(67,97,238,0.3); box-shadow: var(--card-shadow); }
+        .project-image-thumb {
+            width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #f0f2f5;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .project-image-thumb img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .project-image-caption {
+            padding: 0.6rem 0.8rem; font-size: 0.75rem; color: var(--text-light);
+            background: var(--bg-alt); line-height: 1.4;
         }
 
-        .method-card {
-            padding: 1.5rem;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: var(--transition);
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none; position: fixed; z-index: 9999; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+            align-items: center; justify-content: center; flex-direction: column;
+            animation: fadeIn 0.2s ease;
         }
-
-        .method-card:hover {
-            border-color: rgba(67,97,238,0.2);
-            box-shadow: var(--card-shadow);
+        .lightbox.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .lightbox img { max-width: 92vw; max-height: 85vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); object-fit: contain; }
+        .lightbox-caption { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 1rem; text-align: center; max-width: 80vw; }
+        .lightbox-close {
+            position: absolute; top: 1.5rem; right: 2rem; background: none; border: none;
+            color: white; font-size: 2rem; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;
+            line-height: 1; z-index: 1;
         }
-
-        .method-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(67,97,238,0.08);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .lightbox-close:hover { opacity: 1; }
+        .lightbox-prev, .lightbox-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.12); border: none; color: white;
+            font-size: 2rem; width: 48px; height: 48px; border-radius: 50%;
+            cursor: pointer; opacity: 0.7; transition: opacity 0.2s;
+            display: flex; align-items: center; justify-content: center;
         }
+        .lightbox-prev:hover, .lightbox-next:hover { opacity: 1; }
+        .lightbox-prev { left: 2rem; }
+        .lightbox-next { right: 2rem; }
 
-        .method-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
+        /* ── Methodology ── */
+        .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+        .method-card { padding: 1.5rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); }
+        .method-card:hover { border-color: rgba(67,97,238,0.2); box-shadow: var(--card-shadow); }
+        .method-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(67,97,238,0.08); border-radius: 10px; margin-bottom: 1rem; font-size: 1.2rem; }
+        .method-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
+        .method-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; }
 
-        .method-card p {
-            font-size: 0.82rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+        /* ── Skills ── */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .skill-group h4 { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--highlight); display: inline-block; }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-item { padding: 0.4rem 0.85rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: 0.78rem; color: var(--text); transition: var(--transition); }
+        .skill-item:hover { border-color: var(--highlight); color: var(--highlight); }
 
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+        /* ── Footer ── */
+        .footer { padding: 3rem 2rem; background: var(--bg-alt); border-top: 1px solid var(--border); text-align: center; }
+        .footer-content { max-width: 1100px; margin: 0 auto; }
+        .footer p { font-size: 0.82rem; color: var(--text-light); }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+        .footer-links a { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 500; transition: var(--transition); }
+        .footer-links a:hover { color: var(--highlight); }
 
-        .skill-group h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--highlight);
-            display: inline-block;
-        }
+        /* ── Mobile ── */
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; transition: var(--transition); }
 
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-item {
-            padding: 0.4rem 0.85rem;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.78rem;
-            color: var(--text);
-            transition: var(--transition);
-        }
-
-        .skill-item:hover {
-            border-color: var(--highlight);
-            color: var(--highlight);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 3rem 2rem;
-            background: var(--bg-alt);
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .footer p {
-            font-size: 0.82rem;
-            color: var(--text-light);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--highlight);
-        }
-
-        /* Mobile Menu */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-toggle span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: var(--text);
-            margin: 4px 0;
-            transition: var(--transition);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(12px);
-                flex-direction: column;
-                padding: 1.5rem 2rem;
-                gap: 1rem;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .hero {
-                padding: 120px 1.5rem 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-contact {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.75rem;
-            }
-
-            .section {
-                padding: 60px 1.5rem;
-            }
-
-            .methodology-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                padding: 1.5rem;
-            }
+            .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid var(--border); }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 120px 1.5rem 60px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-contact { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+            .section { padding: 60px 1.5rem; }
+            .methodology-grid { grid-template-columns: 1fr; }
+            .skills-container { grid-template-columns: 1fr; }
+            .project-card { padding: 1.5rem; }
+            .project-images-grid { grid-template-columns: 1fr; }
+            .lightbox-prev { left: 0.5rem; }
+            .lightbox-next { right: 0.5rem; }
         }
 
-        /* Smooth appear animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Scroll animation */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- ═══════ Navigation ═══════ -->
     <nav class="nav">
         <div class="nav-inner">
             <div class="nav-brand">唐磊 · Portfolio</div>
             <ul class="nav-links">
-                <li><a href="#projects">项目案例</a></li>
+                <li><a href="#ai-projects">AI应用</a></li>
+                <li><a href="#system-projects">系统产品</a></li>
                 <li><a href="#methodology">工作方法</a></li>
                 <li><a href="#skills">技能栈</a></li>
                 <li><a href="#contact">联系我</a></li>
             </ul>
             <button class="mobile-toggle" onclick="toggleMobile()" aria-label="菜单">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- ═══════ Hero ═══════ -->
     <section class="hero">
-        <div class="hero-badge">开放求职中</div>
+        <div class="hero-badge">开放求职中 · 深圳 / 成都</div>
         <h1>8年B端产品经理<br>AI × 业务落地实践者</h1>
         <p class="hero-subtitle">
             擅长以单据/工单为主线，将跨部门复杂业务标准化。<br>
@@ -724,11 +294,14 @@
             <span class="hero-tag">RAG 知识库</span>
             <span class="hero-tag">RPA 流程自动化</span>
             <span class="hero-tag">ERP / OMS / WMS</span>
+            <span class="hero-tag">业财一体</span>
+            <span class="hero-tag">多系统对接</span>
+            <span class="hero-tag">Hermes 应用</span>
         </div>
         <div class="hero-contact" id="contact">
-            <a href="mailto:tanglei_pm@outlook.com">
+            <a href="mailto:310146997@qq.com">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                tanglei_pm@outlook.com
+                310146997@qq.com
             </a>
             <a href="tel:13800000000">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -737,13 +310,16 @@
         </div>
     </section>
 
-    <!-- Projects -->
-    <section class="section" id="projects">
-        <div class="section-header">
-            <p class="section-label">Project Cases</p>
-            <h2 class="section-title">项目案例</h2>
+    <!-- ═══════ AI 应用板块 ═══════ -->
+    <section class="section" id="ai-projects" style="padding-bottom: 2rem;">
+        <div class="section-header" style="margin-bottom: 2rem;">
+            <p class="section-label">AI Applications</p>
+            <h2 class="section-title">AI 应用案例</h2>
+            <p style="font-size: 0.88rem; color: var(--text-light); margin-top: 0.5rem;">大模型、RAG、Agent、RPA — 从概念到生产落地的完整闭环</p>
         </div>
+    </section>
 
+    <div class="section" style="padding-top: 0; padding-bottom: 2rem;">
         <div class="projects-grid">
             <!-- Project 1: 库存分析日报 -->
             <div class="project-card fade-in" onclick="toggleExpand(this)">
@@ -768,7 +344,7 @@
                     原耗时 2 小时人工日报 → 秒级自动生成
                 </div>
                 <button class="expand-btn">
-                    查看详情 <span class="arrow">↓</span>
+                    查看详情与截图 <span class="arrow">↓</span>
                 </button>
                 <div class="project-detail">
                     <h4>核心功能</h4>
@@ -787,17 +363,13 @@
                     <div class="project-images">
                         <h4>项目截图</h4>
                         <div class="project-images-grid">
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_01.jpg" alt="库存分析报告截图" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(0, 'gallery-inventory')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_01.jpg" alt="库存分析报告截图" loading="lazy"></div>
                                 <div class="project-image-caption">库存分析报告 — 自动生成的综合库存状况报告</div>
                             </div>
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_02.jpg" alt="后端工作流架构" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(1, 'gallery-inventory')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_02.jpg" alt="后端工作流架构" loading="lazy"></div>
                                 <div class="project-image-caption">后端工作流 — Agent 多步推理与计算链路</div>
-                            </div>
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_03.jpg" alt="使用场景截图" loading="lazy">
-                                <div class="project-image-caption">实际使用场景 — 对话式交互获取库存分析</div>
                             </div>
                         </div>
                     </div>
@@ -827,7 +399,7 @@
                     支持微信/企微/飞书多端接入，即问即答
                 </div>
                 <button class="expand-btn">
-                    查看详情 <span class="arrow">↓</span>
+                    查看详情与截图 <span class="arrow">↓</span>
                 </button>
                 <div class="project-detail">
                     <h4>核心功能</h4>
@@ -845,20 +417,24 @@
                     <div class="project-images">
                         <h4>项目截图</h4>
                         <div class="project-images-grid">
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_04.jpg" alt="智能体调试页面" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(0, 'gallery-rag')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_04.jpg" alt="智能体调试页面" loading="lazy"></div>
                                 <div class="project-image-caption">智能体调试页面 — Coze 平台工作流调试视图</div>
                             </div>
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_05.jpg" alt="知识库切片策略" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(1, 'gallery-rag')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_05.jpg" alt="知识库切片策略" loading="lazy"></div>
                                 <div class="project-image-caption">知识库切片 — 层级路径+语义完整性切片策略</div>
+                            </div>
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(2, 'gallery-rag')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_03.jpg" alt="用户对话截图" loading="lazy"></div>
+                                <div class="project-image-caption">用户对话界面 — 员工手册智能问答交互效果</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3 & 4: RPA -->
+            <!-- Project 3: RPA -->
             <div class="project-card fade-in" onclick="toggleExpand(this)">
                 <div class="project-card-header">
                     <span class="project-card-type type-rpa">RPA 自动化</span>
@@ -881,7 +457,7 @@
                     重复操作工时从小时级降至分钟级
                 </div>
                 <button class="expand-btn">
-                    查看详情 <span class="arrow">↓</span>
+                    查看详情与截图 <span class="arrow">↓</span>
                 </button>
                 <div class="project-detail">
                     <h4>应用场景</h4>
@@ -893,23 +469,80 @@
                     <div class="project-images">
                         <h4>项目截图</h4>
                         <div class="project-images-grid">
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_06.jpg" alt="RPA方案架构1" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(0, 'gallery-rpa')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_06.jpg" alt="RPA方案架构1" loading="lazy"></div>
                                 <div class="project-image-caption">RPA 应用架构 — 影刀平台自动化流程设计</div>
                             </div>
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_07.jpg" alt="RPA方案架构2" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(1, 'gallery-rpa')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_07.jpg" alt="RPA方案架构2" loading="lazy"></div>
                                 <div class="project-image-caption">RPA 流程设计 — 条件判断与循环逻辑</div>
-                            </div>
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_08.jpg" alt="RPA方案架构3" loading="lazy">
-                                <div class="project-image-caption">RPA 自动化执行 — 无人值守批量操作</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Project 7: Hermes 应用 -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-tool">AI 工具</span>
+                </div>
+                <h3>AI Agent 辅助产品交付实战</h3>
+                <p class="project-card-scene">
+                    作为独立产品经理，使用 Hermes Agent 从零搭建个人作品集网站——全流程驱动：需求分析、方案决策、前端开发、零成本部署上线。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">技术架构</span>
+                    Hermes Agent（AI编程助手）+ GitHub Pages 免费托管
+                </div>
+                <ul class="project-highlights">
+                    <li>AI 主动对比三种方案（静态/CMS后台/混合），结合"现金流为零"约束果断否定过度工程</li>
+                    <li>自动从飞书文档提取6个案例内容，并完成跨平台内容结构化</li>
+                    <li>生成完整响应式单页站点：HTML+CSS+JS，含动画、交互、Lightbox 图片预览</li>
+                    <li>自动完成 Git 初始化、GitHub 仓库创建、Pages 部署、CI/CD 工作流配置</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">🚀</span>
+                    从"我有一个想法"到可用链接发给HR，总耗时约 30 分钟，零资金成本
+                </div>
+                <button class="expand-btn">
+                    查看详情 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <h4>核心价值</h4>
+                    <ul>
+                        <li>无需掌握 HTML/Git/GitHub 任一技能，AI Agent 全权执行</li>
+                        <li>AI 做执行层（代码、部署、配置），人做决策层（需求判断、质量把控）</li>
+                        <li>验证了"无技术团队的独立产品经理，AI Agent 就是你的工程团队"</li>
+                    </ul>
+                    <h4>方案要点</h4>
+                    <ul>
+                        <li>需求诊断：主动对比三种方案优劣，结合用户真实约束做决策</li>
+                        <li>跨平台内容抓取：从飞书文档自动提取结构化内容</li>
+                        <li>交互设计：固定图片预览尺寸、2列布局、点击弹窗放大</li>
+                        <li>自动部署闭环：git init → push → GitHub Pages → 上线</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ 板块分隔 ═══════ -->
+    <div class="section-divider">
+        <span class="section-divider-label">◆ 系统产品 ◆</span>
+    </div>
+
+    <!-- ═══════ 系统产品板块 ═══════ -->
+    <section class="section" id="system-projects" style="padding-bottom: 2rem;">
+        <div class="section-header" style="margin-bottom: 2rem;">
+            <p class="section-label">B端 System Products</p>
+            <h2 class="section-title">系统产品案例</h2>
+            <p style="font-size: 0.88rem; color: var(--text-light); margin-top: 0.5rem;">ERP / 进销存 / 财务 — 以单据工单为主线，标准化复杂业务</p>
+        </div>
+    </section>
+
+    <div class="section" style="padding-top: 0;">
+        <div class="projects-grid">
             <!-- Project 5: 财务系统 -->
             <div class="project-card fade-in" onclick="toggleExpand(this)">
                 <div class="project-card-header">
@@ -931,6 +564,26 @@
                 <div class="project-result">
                     <span class="project-result-icon">📊</span>
                     财务数据从散落多表 → 一屏整合看板
+                </div>
+                <button class="expand-btn">
+                    查看详情与截图 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <h4>产品设计要点</h4>
+                    <ul>
+                        <li>多维度交叉筛选：按时间/部门/费用类型灵活聚合</li>
+                        <li>数据溯源：从汇总下钻到原始凭证，审计友好</li>
+                        <li>权限分级：不同角色看到不同粒度的数据</li>
+                    </ul>
+                    <div class="project-images">
+                        <h4>系统截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(0, 'gallery-finance')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_08.jpg" alt="财务整合系统看板" loading="lazy"></div>
+                                <div class="project-image-caption">财务整合看板 — 多维度财务数据一屏呈现</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -957,18 +610,24 @@
                     业务全链路数字化，告别 Excel 手工台账
                 </div>
                 <button class="expand-btn">
-                    查看详情 <span class="arrow">↓</span>
+                    查看详情与截图 <span class="arrow">↓</span>
                 </button>
                 <div class="project-detail">
+                    <h4>产品设计要点</h4>
+                    <ul>
+                        <li>订单状态机：待审核→已审核→部分入库→全部入库→结算</li>
+                        <li>采购与销售双向对账，自动计算利润</li>
+                        <li>多仓库库存实时同步，支持调拨与盘点</li>
+                    </ul>
                     <div class="project-images">
                         <h4>系统截图</h4>
                         <div class="project-images-grid">
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_09.jpg" alt="厂家订单详情页" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(0, 'gallery-erp')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_09.jpg" alt="厂家订单详情页" loading="lazy"></div>
                                 <div class="project-image-caption">厂家订单详情页 — 完整订单信息与状态追踪</div>
                             </div>
-                            <div class="project-image-item">
-                                <img src="assets/images/portfolio_10.jpg" alt="采购用户订单详情" loading="lazy">
+                            <div class="project-image-item" onclick="event.stopPropagation(); openLightbox(1, 'gallery-erp')">
+                                <div class="project-image-thumb"><img src="assets/images/portfolio_10.jpg" alt="采购用户订单详情" loading="lazy"></div>
                                 <div class="project-image-caption">采购用户订单详情 — 买家视角的订单管理界面</div>
                             </div>
                         </div>
@@ -976,15 +635,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Methodology -->
+    <!-- ═══════ Methodology ═══════ -->
     <section class="section" id="methodology" style="background: var(--bg-alt); margin: 0; max-width: 100%; padding-left: calc((100% - 1100px)/2 + 2rem); padding-right: calc((100% - 1100px)/2 + 2rem);">
         <div class="section-header">
             <p class="section-label">Methodology</p>
             <h2 class="section-title">工作方法论</h2>
         </div>
-
         <div class="methodology-grid">
             <div class="method-card fade-in">
                 <div class="method-icon">🎯</div>
@@ -1009,13 +667,12 @@
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- ═══════ Skills ═══════ -->
     <section class="section" id="skills">
         <div class="section-header">
             <p class="section-label">Tech Stack</p>
             <h2 class="section-title">技能栈</h2>
         </div>
-
         <div class="skills-container">
             <div class="skill-group fade-in">
                 <h4>产品设计</h4>
@@ -1023,7 +680,10 @@
                     <span class="skill-item">B端中后台系统</span>
                     <span class="skill-item">ERP / OMS / WMS / SRM</span>
                     <span class="skill-item">进销存</span>
+                    <span class="skill-item">财务系统</span>
+                    <span class="skill-item">业财一体</span>
                     <span class="skill-item">供应链数字化</span>
+                    <span class="skill-item">多系统对接</span>
                     <span class="skill-item">业务流程标准化</span>
                     <span class="skill-item">数据看板设计</span>
                 </div>
@@ -1035,6 +695,7 @@
                     <span class="skill-item">RAG 系统搭建</span>
                     <span class="skill-item">AI Agent 设计</span>
                     <span class="skill-item">Coze / Dify 工作流</span>
+                    <span class="skill-item">Hermes 应用</span>
                     <span class="skill-item">LLM 应用架构</span>
                     <span class="skill-item">知识库构建</span>
                 </div>
@@ -1053,26 +714,116 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════ Footer ═══════ -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="mailto:tanglei_pm@outlook.com">📧 邮箱联系</a>
+                <a href="mailto:310146997@qq.com">📧 310146997@qq.com</a>
                 <a href="https://github.com/ChuangHongDeng" target="_blank">🔗 GitHub</a>
             </div>
             <p>© 2024 唐磊 · B端产品经理 · AI落地实践者</p>
         </div>
     </footer>
 
+    <!-- ═══════ Lightbox Modal ═══════ -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <button class="lightbox-prev" onclick="event.stopPropagation(); prevImage()">‹</button>
+        <button class="lightbox-next" onclick="event.stopPropagation(); nextImage()">›</button>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
     <script>
+        // Gallery data: each gallery has a name and an array of {src, caption}
+        const galleries = {
+            'gallery-inventory': [
+                {src:'assets/images/portfolio_01.jpg', caption:'库存分析报告 — 自动生成的综合库存状况报告'},
+                {src:'assets/images/portfolio_02.jpg', caption:'后端工作流 — Agent 多步推理与计算链路'}
+            ],
+            'gallery-rag': [
+                {src:'assets/images/portfolio_04.jpg', caption:'智能体调试页面 — Coze 平台工作流调试视图'},
+                {src:'assets/images/portfolio_05.jpg', caption:'知识库切片 — 层级路径+语义完整性切片策略'},
+                {src:'assets/images/portfolio_03.jpg', caption:'用户对话界面 — 员工手册智能问答交互效果'}
+            ],
+            'gallery-rpa': [
+                {src:'assets/images/portfolio_06.jpg', caption:'RPA 应用架构 — 影刀平台自动化流程设计'},
+                {src:'assets/images/portfolio_07.jpg', caption:'RPA 流程设计 — 条件判断与循环逻辑'}
+            ],
+            'gallery-finance': [
+                {src:'assets/images/portfolio_08.jpg', caption:'财务整合看板 — 多维度财务数据一屏呈现'}
+            ],
+            'gallery-erp': [
+                {src:'assets/images/portfolio_09.jpg', caption:'厂家订单详情页 — 完整订单信息与状态追踪'},
+                {src:'assets/images/portfolio_10.jpg', caption:'采购用户订单详情 — 买家视角的订单管理界面'}
+            ]
+        };
+
+        let currentGallery = null;
+        let currentIndex = 0;
+
+        function openLightbox(index, galleryName) {
+            currentGallery = galleryName;
+            currentIndex = index;
+            const item = galleries[galleryName][index];
+            document.getElementById('lightbox-img').src = item.src;
+            document.getElementById('lightbox-img').alt = item.caption;
+            document.getElementById('lightbox-caption').textContent = item.caption;
+            document.getElementById('lightbox').classList.add('active');
+            updateNavButtons();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            currentGallery = null;
+            currentIndex = 0;
+        }
+
+        function prevImage() {
+            if (!currentGallery) return;
+            const g = galleries[currentGallery];
+            currentIndex = (currentIndex - 1 + g.length) % g.length;
+            document.getElementById('lightbox-img').src = g[currentIndex].src;
+            document.getElementById('lightbox-caption').textContent = g[currentIndex].caption;
+            updateNavButtons();
+        }
+
+        function nextImage() {
+            if (!currentGallery) return;
+            const g = galleries[currentGallery];
+            currentIndex = (currentIndex + 1) % g.length;
+            document.getElementById('lightbox-img').src = g[currentIndex].src;
+            document.getElementById('lightbox-caption').textContent = g[currentIndex].caption;
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            const g = galleries[currentGallery];
+            const prev = document.querySelector('.lightbox-prev');
+            const next = document.querySelector('.lightbox-next');
+            if (g.length <= 1) {
+                prev.style.display = 'none';
+                next.style.display = 'none';
+            } else {
+                prev.style.display = 'flex';
+                next.style.display = 'flex';
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!currentGallery) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
         // Toggle project card expand
         function toggleExpand(card) {
             const wasExpanded = card.classList.contains('expanded');
-            // Close all other cards
             document.querySelectorAll('.project-card.expanded').forEach(c => {
                 if (c !== card) c.classList.remove('expanded');
             });
-            // Toggle current
             if (wasExpanded) {
                 card.classList.remove('expanded');
             } else {

@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>唐磊 | B端产品经理 · AI落地实践者</title>
+    <meta name="description" content="8年B端中后台产品经理，擅长AI×业务落地，供应链数字化，复杂业务标准化">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #4361ee;
+            --highlight-light: #4895ef;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --border: #e2e8f0;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --card-shadow-hover: 0 10px 25px rgba(67,97,238,0.08), 0 4px 10px rgba(0,0,0,0.04);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            transition: var(--transition);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--highlight);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 2rem 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, rgba(67,97,238,0.08), rgba(72,149,239,0.08));
+            border: 1px solid rgba(67,97,238,0.15);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--highlight);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--highlight);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-tag {
+            padding: 0.45rem 1rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .hero-contact a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .hero-contact a:hover {
+            color: var(--highlight);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--highlight), var(--highlight-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: rgba(67,97,238,0.2);
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .project-card-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .type-ai {
+            background: rgba(67,97,238,0.1);
+            color: var(--highlight);
+        }
+
+        .type-system {
+            background: rgba(16,185,129,0.1);
+            color: #10b981;
+        }
+
+        .type-rpa {
+            background: rgba(245,158,11,0.1);
+            color: #f59e0b;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-card-scene {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .project-card-arch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-alt);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+        }
+
+        .project-card-arch-label {
+            font-weight: 600;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .project-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-highlights li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.84rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .project-highlights li::before {
+            content: '→';
+            color: var(--highlight);
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .project-result {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: rgba(67,97,238,0.04);
+            border: 1px solid rgba(67,97,238,0.1);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--highlight);
+            font-weight: 500;
+        }
+
+        .project-result-icon {
+            font-size: 1rem;
+        }
+
+        /* Detail Modal */
+        .project-detail {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-card.expanded .project-detail {
+            display: block;
+        }
+
+        .project-detail h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-detail ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-detail ul li {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            padding-left: 1.2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .project-detail ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+        }
+
+        /* Project Images Gallery */
+        .project-images {
+            margin-top: 1.5rem;
+        }
+
+        .project-images h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-image-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-image-item:hover {
+            border-color: rgba(67,97,238,0.3);
+            box-shadow: var(--card-shadow);
+        }
+
+        .project-image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-image-caption {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            background: var(--bg-alt);
+        }
+
+        .expand-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--highlight);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .expand-btn:hover {
+            gap: 0.6rem;
+        }
+
+        .expand-btn .arrow {
+            transition: var(--transition);
+        }
+
+        .project-card.expanded .expand-btn .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Methodology Section */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .method-card {
+            padding: 1.5rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            border-color: rgba(67,97,238,0.2);
+            box-shadow: var(--card-shadow);
+        }
+
+        .method-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67,97,238,0.08);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .method-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .method-card p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--highlight);
+            display: inline-block;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            padding: 0.4rem 0.85rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.78rem;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            border-color: var(--highlight);
+            color: var(--highlight);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem;
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--highlight);
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 4px 0;
+            transition: var(--transition);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 1.5rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-contact {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .section {
+                padding: 60px 1.5rem;
+            }
+
+            .methodology-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Smooth appear animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">唐磊 · Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#projects">项目案例</a></li>
+                <li><a href="#methodology">工作方法</a></li>
+                <li><a href="#skills">技能栈</a></li>
+                <li><a href="#contact">联系我</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobile()" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">开放求职中</div>
+        <h1>8年B端产品经理<br>AI × 业务落地实践者</h1>
+        <p class="hero-subtitle">
+            擅长以单据/工单为主线，将跨部门复杂业务标准化。<br>
+            结合 AI 大模型能力，让系统从"记录工具"进化为"决策助手"。
+        </p>
+        <div class="hero-tags">
+            <span class="hero-tag">B端中后台系统设计</span>
+            <span class="hero-tag">供应链数字化</span>
+            <span class="hero-tag">AI Agent 实战</span>
+            <span class="hero-tag">RAG 知识库</span>
+            <span class="hero-tag">RPA 流程自动化</span>
+            <span class="hero-tag">ERP / OMS / WMS</span>
+        </div>
+        <div class="hero-contact" id="contact">
+            <a href="mailto:tanglei_pm@outlook.com">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                tanglei_pm@outlook.com
+            </a>
+            <a href="tel:13800000000">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                请邮件联系
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+        <div class="section-header">
+            <p class="section-label">Project Cases</p>
+            <h2 class="section-title">项目案例</h2>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: 库存分析日报 -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-ai">AI Agent</span>
+                </div>
+                <h3>供应链库存分析日报 Agent</h3>
+                <p class="project-card-scene">
+                    针对仓库管理中库存数据人工统计耗时、风险识别滞后的痛点，实现从原始数据到可视化日报的全流程自动化。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">技术架构</span>
+                    大模型（语义理解）+ Python 代码节点（精确计算）混合架构
+                </div>
+                <ul class="project-highlights">
+                    <li>防御性编程解决 LLM 输出不稳定问题，JSON 字段自适应映射，解析成功率 99%</li>
+                    <li>Python 节点精确计算周转天数，规避大模型计算幻觉</li>
+                    <li>多层风险判断逻辑，实现"缺货+临期"复合风险精准识别与分级预警</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">⚡</span>
+                    原耗时 2 小时人工日报 → 秒级自动生成
+                </div>
+                <button class="expand-btn">
+                    查看详情 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <h4>核心功能</h4>
+                    <ul>
+                        <li>分钟级分析库存状况，输出综合报告</li>
+                        <li>自动分类：产品过期、即将断货、临期预警、严重滞销、正常状态</li>
+                        <li>四类库存分级预警：紧急缺货 / 严重滞销 / 临期过期 / 正常流转</li>
+                        <li>每个 SKU 自动输出风险标签 + 建议措施，无需人工二次判断</li>
+                    </ul>
+                    <h4>方案要点</h4>
+                    <ul>
+                        <li>中英文字段自适应映射，解决大模型 JSON 字段名不稳定问题</li>
+                        <li>LLM 负责语义理解，Python 负责精确数学计算，各司其职</li>
+                        <li>复合风险识别：多维度交叉判断，不遗漏叠加风险场景</li>
+                    </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_01.jpg" alt="库存分析报告截图" loading="lazy">
+                                <div class="project-image-caption">库存分析报告 — 自动生成的综合库存状况报告</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_02.jpg" alt="后端工作流架构" loading="lazy">
+                                <div class="project-image-caption">后端工作流 — Agent 多步推理与计算链路</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_03.jpg" alt="使用场景截图" loading="lazy">
+                                <div class="project-image-caption">实际使用场景 — 对话式交互获取库存分析</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: RAG 知识库 -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-ai">RAG 知识库</span>
+                </div>
+                <h3>企业员工手册智能问答系统</h3>
+                <p class="project-card-scene">
+                    针对企业规章制度内容繁杂、检索效率低、新人培训成本高的问题，探索 AI 大模型在内部知识管理场景的落地。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">技术架构</span>
+                    Coze 平台 RAG 系统，LLM 语义理解 + 知识库精准检索
+                </div>
+                <ul class="project-highlights">
+                    <li>设计"层级路径+语义完整性"切片策略，解决上下文丢失问题</li>
+                    <li>结构化提示词工程，回答可信度提升至 95%+，答案必带出处</li>
+                    <li>三维测试体系：查准率 / 拒答能力 / 泛化能力，持续迭代优化</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">💬</span>
+                    支持微信/企微/飞书多端接入，即问即答
+                </div>
+                <button class="expand-btn">
+                    查看详情 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <h4>核心功能</h4>
+                    <ul>
+                        <li>支持接入微信、企微、飞书等消息平台</li>
+                        <li>基于知识库提供高效检索、智能问答体验</li>
+                        <li>答案强制引用出处，满足合规要求</li>
+                    </ul>
+                    <h4>方案要点</h4>
+                    <ul>
+                        <li>数据治理：复杂表格转自然语言描述，提升检索准确率</li>
+                        <li>提示词工程：角色设定 + 引用溯源 + 幻觉抑制</li>
+                        <li>Bad Case 归因分析驱动持续优化</li>
+                    </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_04.jpg" alt="智能体调试页面" loading="lazy">
+                                <div class="project-image-caption">智能体调试页面 — Coze 平台工作流调试视图</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_05.jpg" alt="知识库切片策略" loading="lazy">
+                                <div class="project-image-caption">知识库切片 — 层级路径+语义完整性切片策略</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 & 4: RPA -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-rpa">RPA 自动化</span>
+                </div>
+                <h3>业务流程 RPA 自动化方案</h3>
+                <p class="project-card-scene">
+                    针对重复性系统操作工作（网页数据获取、多页带条件判断操作），通过 RPA 实现无人值守自动化执行。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">技术架构</span>
+                    影刀 RPA 自动化应用
+                </div>
+                <ul class="project-highlights">
+                    <li>网页数据自动抓取：批量获取结构化数据，替代人工复制粘贴</li>
+                    <li>多页带条件决策：根据业务规则自动判断执行路径</li>
+                    <li>异常处理机制：网络超时、页面变化等异常场景的容错设计</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">🤖</span>
+                    重复操作工时从小时级降至分钟级
+                </div>
+                <button class="expand-btn">
+                    查看详情 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <h4>应用场景</h4>
+                    <ul>
+                        <li>场景一：网页批量数据采集 → 结构化存储</li>
+                        <li>场景二：跨系统多页面操作 + 条件分支决策</li>
+                        <li>规则驱动：将业务判断逻辑编码为可复用的 RPA 流程</li>
+                    </ul>
+                    <div class="project-images">
+                        <h4>项目截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_06.jpg" alt="RPA方案架构1" loading="lazy">
+                                <div class="project-image-caption">RPA 应用架构 — 影刀平台自动化流程设计</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_07.jpg" alt="RPA方案架构2" loading="lazy">
+                                <div class="project-image-caption">RPA 流程设计 — 条件判断与循环逻辑</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_08.jpg" alt="RPA方案架构3" loading="lazy">
+                                <div class="project-image-caption">RPA 自动化执行 — 无人值守批量操作</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: 财务系统 -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-system">B端系统</span>
+                </div>
+                <h3>财务数据整合系统</h3>
+                <p class="project-card-scene">
+                    设计财务整合系统看板，将分散的财务数据汇聚为统一视图，支撑经营决策。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">产品类型</span>
+                    B端中后台 · 数据看板 · 财务模块
+                </div>
+                <ul class="project-highlights">
+                    <li>多维度财务数据聚合，一屏掌握经营全貌</li>
+                    <li>从数据录入到报表输出全链路标准化</li>
+                    <li>支撑管理层快速决策，降低财务核算错误率</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">📊</span>
+                    财务数据从散落多表 → 一屏整合看板
+                </div>
+            </div>
+
+            <!-- Project 6: 进销存系统 -->
+            <div class="project-card fade-in" onclick="toggleExpand(this)">
+                <div class="project-card-header">
+                    <span class="project-card-type type-system">B端系统</span>
+                </div>
+                <h3>进销存管理系统</h3>
+                <p class="project-card-scene">
+                    围绕采购、销售、库存核心业务链路，设计完整的进销存管理系统，以订单单据为主线串联上下游。
+                </p>
+                <div class="project-card-arch">
+                    <span class="project-card-arch-label">产品类型</span>
+                    B端中后台 · ERP · 进销存
+                </div>
+                <ul class="project-highlights">
+                    <li>以厂家订单为核心，打通采购-入库-销售-出库全链路</li>
+                    <li>单据驱动：每个业务动作都有据可查、状态可追</li>
+                    <li>库存实时同步，支持多仓管理</li>
+                </ul>
+                <div class="project-result">
+                    <span class="project-result-icon">📦</span>
+                    业务全链路数字化，告别 Excel 手工台账
+                </div>
+                <button class="expand-btn">
+                    查看详情 <span class="arrow">↓</span>
+                </button>
+                <div class="project-detail">
+                    <div class="project-images">
+                        <h4>系统截图</h4>
+                        <div class="project-images-grid">
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_09.jpg" alt="厂家订单详情页" loading="lazy">
+                                <div class="project-image-caption">厂家订单详情页 — 完整订单信息与状态追踪</div>
+                            </div>
+                            <div class="project-image-item">
+                                <img src="assets/images/portfolio_10.jpg" alt="采购用户订单详情" loading="lazy">
+                                <div class="project-image-caption">采购用户订单详情 — 买家视角的订单管理界面</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section" id="methodology" style="background: var(--bg-alt); margin: 0; max-width: 100%; padding-left: calc((100% - 1100px)/2 + 2rem); padding-right: calc((100% - 1100px)/2 + 2rem);">
+        <div class="section-header">
+            <p class="section-label">Methodology</p>
+            <h2 class="section-title">工作方法论</h2>
+        </div>
+
+        <div class="methodology-grid">
+            <div class="method-card fade-in">
+                <div class="method-icon">🎯</div>
+                <h4>业务主线思维</h4>
+                <p>以单据/工单为主线梳理跨部门流程，找到业务的"脊柱"再设计系统，而非堆砌功能模块。</p>
+            </div>
+            <div class="method-card fade-in">
+                <div class="method-icon">🧩</div>
+                <h4>AI 精准嵌入</h4>
+                <p>不为用AI而用AI。精准识别"人做低效、机器做高效"的环节，让 LLM 处理语义，让代码处理计算。</p>
+            </div>
+            <div class="method-card fade-in">
+                <div class="method-icon">🛡️</div>
+                <h4>防御性设计</h4>
+                <p>大模型输出天然不稳定。设计兜底逻辑、字段映射、异常回退，让 AI 方案在生产环境可靠运行。</p>
+            </div>
+            <div class="method-card fade-in">
+                <div class="method-icon">📐</div>
+                <h4>数据驱动迭代</h4>
+                <p>建立测试用例库，通过 Bad Case 归因分析持续优化。用数据说话，不靠感觉调参。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <p class="section-label">Tech Stack</p>
+            <h2 class="section-title">技能栈</h2>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-group fade-in">
+                <h4>产品设计</h4>
+                <div class="skill-list">
+                    <span class="skill-item">B端中后台系统</span>
+                    <span class="skill-item">ERP / OMS / WMS / SRM</span>
+                    <span class="skill-item">进销存</span>
+                    <span class="skill-item">供应链数字化</span>
+                    <span class="skill-item">业务流程标准化</span>
+                    <span class="skill-item">数据看板设计</span>
+                </div>
+            </div>
+            <div class="skill-group fade-in">
+                <h4>AI 实战</h4>
+                <div class="skill-list">
+                    <span class="skill-item">Prompt Engineering</span>
+                    <span class="skill-item">RAG 系统搭建</span>
+                    <span class="skill-item">AI Agent 设计</span>
+                    <span class="skill-item">Coze / Dify 工作流</span>
+                    <span class="skill-item">LLM 应用架构</span>
+                    <span class="skill-item">知识库构建</span>
+                </div>
+            </div>
+            <div class="skill-group fade-in">
+                <h4>工具 & 协作</h4>
+                <div class="skill-list">
+                    <span class="skill-item">Cursor</span>
+                    <span class="skill-item">影刀 RPA</span>
+                    <span class="skill-item">Axure / Figma</span>
+                    <span class="skill-item">飞书 / 企微</span>
+                    <span class="skill-item">Python（辅助）</span>
+                    <span class="skill-item">SQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:tanglei_pm@outlook.com">📧 邮箱联系</a>
+                <a href="https://github.com/ChuangHongDeng" target="_blank">🔗 GitHub</a>
+            </div>
+            <p>© 2024 唐磊 · B端产品经理 · AI落地实践者</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle project card expand
+        function toggleExpand(card) {
+            const wasExpanded = card.classList.contains('expanded');
+            // Close all other cards
+            document.querySelectorAll('.project-card.expanded').forEach(c => {
+                if (c !== card) c.classList.remove('expanded');
+            });
+            // Toggle current
+            if (wasExpanded) {
+                card.classList.remove('expanded');
+            } else {
+                card.classList.add('expanded');
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobile() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
